@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Указываем Kestrel слушать на порту 7104 для HTTPS
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenAnyIP(7104, listenOptions =>
@@ -12,11 +11,6 @@ builder.WebHost.ConfigureKestrel(options =>
     });
 });
 
-
-builder.Services.AddLogging(config =>
-{
-    config.AddConsole(); // Добавьте вывод в консоль
-});
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin", policy =>
