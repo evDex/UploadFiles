@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card">
+    <div class="drop-zone"
+         [class.hovered]="isOverDropZone"
+         (click)="openFilePicker()"
+         (drop)="onDrop($event)"
+         (dragover)="onDragOver($event)"
+         (dragleave)="onDragLeave()">
+      <p *ngIf="droppedFiles.length === 0" class="drop-zone-text">Drag and drop video files here</p>
+      <p *ngIf="droppedFiles.length > 0" class="dropped-files-text">Dropped files: {{ droppedFiles.length }} file(s)</p>
+
+      <input type="file"
+             #fileInput
+             multiple
+             accept=".mp4, .mkv, .avi, .mov, .wmv"
+             style="display: none;"
+             (change)="onFileSelected($event)" />
+    </div>
+
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+    <div class="upload-btn-container">
+      <button *ngIf="droppedFiles.length > 0" class="upload-btn" (click)="uploadFiles()">Upload Files</button>
+    </div>
+
+    <div *ngIf="uploadResponse.length > 0" class="upload-result">
+      <h3>Upload Result</h3>
+      <div *ngFor="let fileInfo of uploadResponse" class="file-info">
+        <div class="file-item">
+          <p><strong>File Name:</strong> {{ fileInfo.fileName }}</p>
+        </div>
+        <div class="file-item">
+          <p><strong>File Size:</strong> {{ fileInfo.fileSize | number }} bytes</p>
+        </div>
+        <div class="file-item">
+          <p><strong>Video Duration:</strong> {{ fileInfo.videoDuration | number: '1.0-2' }} seconds</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

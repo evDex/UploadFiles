@@ -1,0 +1,139 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.drop-zone {
+  height: 250px;
+  border: 2px dashed #007BFF;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  background-color: #f1f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+  .drop-zone::before {
+    font-size: 40px;
+    color: #007BFF;
+    opacity: 0.3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .drop-zone.hovered {
+    background-color: #e9f1fd;
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 91, 187, 0.5);
+    cursor: copy;
+  }
+
+    .drop-zone.hovered::before {
+      opacity: 0.6;
+    }
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.drop-zone-text {
+  font-size: 18px;
+  color: #555;
+}
+
+.dropped-files-text {
+  font-size: 16px;
+  color: #555;
+}
+
+.upload-btn-container {
+  margin-bottom: 20px;
+}
+
+.upload-btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+  .upload-btn:hover {
+    background-color: #0056b3;
+  }
+
+.upload-result {
+  width: 100%;
+  margin-top: 20px;
+  text-align: left;
+}
+
+  .upload-result h3 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.file-item {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.file-info p {
+  font-size: 16px;
+  color: #333;
+}
+
+.file-info strong {
+  color: #007BFF;
+}
+
+.upload-btn.error {
+  background-color: red;
+  color: white;
+}
